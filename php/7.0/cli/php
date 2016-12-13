@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker run -it --rm -v $(pwd):/app --net=host --sig-proxy=true --pid=host -u $(id -u):$(id -g) biserantonov/php:7.0-cli "$@"

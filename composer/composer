@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+COMPOSER_DIR="$HOME/.composer"
+
+if [ ! -d $COMPOSER_DIR ]; then
+    mkdir $COMPOSER_DIR
+fi
+
+docker run -it --rm -v $(pwd):/app -v $COMPOSER_DIR:/composer --net=host --sig-proxy=true --pid=host -u $(id -u):$(id -g) biserantonov/composer:7.0 "$@"
